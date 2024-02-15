@@ -1,0 +1,28 @@
+<div class="target-choose">
+  <p>Вы выбрали</p>
+  <div class="machines">
+    <div class="machine">
+      <img [src]="currentMachine.imgUrl" [alt]="currentMachine.name">
+      <span>{{currentMachine.name}}</span>
+    </div>
+    <div class="machine">
+      <img [src]="currentAttachment.imgUrl" [alt]="currentAttachment.name">
+      <span>{{currentAttachment.name}}</span>
+    </div>
+  </div>
+</div>
+
+<form [formGroup]="myForm">
+  <label for="place">Место</label>
+  <input formControlName="place" type="text" placeholder="Где будем работать?" id="place">
+
+  <label for="date">Дата</label>
+  <input formControlName="date" type="date" id="date" placeholder="Когда нужна техника?">
+
+  <label for="phone">Номер телефона</label>
+  <input formControlName="phone" type="text" id="phone">
+
+<!--  <label (click)="back()">Назад</label>-->
+
+
+</form>

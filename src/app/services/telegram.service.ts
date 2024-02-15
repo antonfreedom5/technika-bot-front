@@ -1,7 +1,7 @@
 import { DOCUMENT } from '@angular/common';
 import { Inject, Injectable } from '@angular/core';
+import {UserModel} from "../models/user.model";
 
-// интерфейс для функционала кнопок
 interface TgButton {
   show(): void;
   hide(): void;
@@ -12,20 +12,23 @@ interface TgButton {
   disable(): void;
 }
 
+interface TgInitData {
+  user: UserModel;
+}
+
 interface TgWindow {
-  mainButton: TgButton;
-  backButton: TgButton;
+  MainButton: TgButton;
+  BackButton: TgButton;
   expand(): void;
   show(): void;
   close(): void;
   ready(): void;
   sendData(text: string): void;
   showAlert(text: string): void;
+  initDataUnsafe: TgInitData;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TelegramService {
   private window;
   tg: TgWindow;
@@ -34,16 +37,12 @@ export class TelegramService {
     this.tg = this.window.Telegram.WebApp;
   }
 
-  get MainButton(): TgButton {
-    return this.tg.mainButton;
+  get mainButton(): TgButton {
+    return this.tg.MainButton;
   }
 
-  get BackButton(): TgButton {
-    return this.tg.backButton;
-  }
-
-  sendData(data: object) {
-    this.tg.sendData(JSON.stringify(data));
+  get backButton(): TgButton {
+    return this.tg.BackButton;
   }
 
   ready() {
