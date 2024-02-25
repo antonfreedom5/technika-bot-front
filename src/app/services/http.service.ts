@@ -7,7 +7,7 @@ import {OrderModel} from "../models/order.model";
 
 @Injectable()
 export class HttpService {
-  private readonly BASE_URL = "https://spectechnika.webtm.ru/";
+  private readonly BASE_URL = "https://spectechnika.webtm.ru/backend/";
   private readonly LOCAL_URL = "http://localhost:8080/";
 
   constructor(private readonly httpClient: HttpClient) {}
