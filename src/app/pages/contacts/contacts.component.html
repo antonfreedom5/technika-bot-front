@@ -20,9 +20,8 @@
   <input formControlName="date" type="date" id="date" placeholder="Когда нужна техника?">
 
   <label for="phone">Номер телефона</label>
-  <input formControlName="phone" type="text" id="phone">
+  <input formControlName="phone" type="text" id="phone" [imask]="{mask: '+{375}(00)000-00-00', lazy: false}">
 
-<!--  <label (click)="back()">Назад</label>-->
-
+  <button *ngIf="userAgentService.isDesktop" [disabled]="!myForm.valid" (click)="onclick()">Заказать</button>
 
 </form>

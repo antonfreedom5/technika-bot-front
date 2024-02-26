@@ -5,6 +5,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpService} from "../../services/http.service";
 import {OrderModel} from "../../models/order.model";
 import {StateService} from "../../services/state.service";
+import {UserAgentService} from "../../services/user-agent.service";
 
 @Component({
   selector: 'app-contacts',
@@ -15,7 +16,7 @@ export class ContactsComponent implements OnInit {
   currentMachine = this.stateService.currentMachine.value;
   currentAttachment = this.stateService.currentAttachment.value;
 
-  private phoneControl = new FormControl('+375', Validators.required);
+  private phoneControl = new FormControl('+375', [Validators.required, Validators.pattern("\\+375\\(\\d{2}\\)\\d{3}-\\d{2}-\\d{2}")]);
   private placeControl = new FormControl('', Validators.required);
   private dateControl = new FormControl(null, Validators.required);
 
@@ -28,6 +29,7 @@ export class ContactsComponent implements OnInit {
   constructor(private readonly telegramService: TelegramService,
               private readonly stateService: StateService,
               private readonly httpService: HttpService,
+              public readonly userAgentService: UserAgentService,
               private readonly router: Router) {
   }
 
@@ -41,8 +43,9 @@ export class ContactsComponent implements OnInit {
 
     this.telegramService.mainButton.onClick(() => {
       if (this.myForm.valid) {
-        this.httpService.createOrder(this.getData()).subscribe();
-        this.telegramService.tg.close();
+        this.httpService.createOrder(this.getData()).subscribe(() => {
+          this.telegramService.tg.close();
+        });
       } else {
         this.telegramService.tg.showAlert("Заполните все поля, чтобы мы смогли найти Вам водителя");
       }
@@ -60,8 +63,9 @@ export class ContactsComponent implements OnInit {
     };
   }
 
-  readonly back = (): void => {
-    // console.log(this.phoneControl.value)
-    // this.router.navigate(['attachments']);
+  readonly onclick = (): void => {
+    this.httpService.createOrder(this.getData()).subscribe(() => {
+        this.router.navigate(['']);
+      });
   }
 }

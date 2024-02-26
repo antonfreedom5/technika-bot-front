@@ -1,6 +1,5 @@
 import {NgModule} from "@angular/core";
 import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./pages/home/home.component";
 import {AttachmentsComponent} from "./pages/attachments/attachments.component";
 import {ContactsComponent} from "./pages/contacts/contacts.component";
 import {MachinesComponent} from "./pages/machines/machines.component";

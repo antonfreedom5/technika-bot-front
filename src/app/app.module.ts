@@ -3,7 +3,6 @@ import {HttpClientModule} from "@angular/common/http";
 import {HttpService} from "./services/http.service";
 import {NgModule} from "@angular/core";
 import {TelegramService} from "./services/telegram.service";
-import {HomeComponent} from "./pages/home/home.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {CommonModule} from "@angular/common";
@@ -13,9 +12,11 @@ import {ContactsComponent} from "./pages/contacts/contacts.component";
 import {AppRoutingModule} from "./app-routing.module";
 import {StateService} from "./services/state.service";
 import {MachinesComponent} from "./pages/machines/machines.component";
+import {IMaskModule} from "angular-imask";
+import {UserAgentService} from "./services/user-agent.service";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MachinesComponent, AttachmentsComponent, ContactsComponent],
+  declarations: [AppComponent, MachinesComponent, AttachmentsComponent, ContactsComponent],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -23,9 +24,10 @@ import {MachinesComponent} from "./pages/machines/machines.component";
     HttpClientModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    IMaskModule
   ],
-  providers: [HttpService, TelegramService, StateService],
+  providers: [HttpService, TelegramService, StateService, UserAgentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
