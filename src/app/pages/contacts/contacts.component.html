@@ -22,6 +22,6 @@
   <label for="phone">Номер телефона</label>
   <input formControlName="phone" type="text" id="phone" [imask]="{mask: '+{375}(00)000-00-00', lazy: false}">
 
-  <button *ngIf="userAgentService.isDesktop" [disabled]="!myForm.valid" (click)="onclick()">Заказать</button>
+  <button *ngIf="!telegramService.tg.initDataUnsafe.user" [disabled]="!myForm.valid" (click)="onclick()">Заказать</button>
 
 </form>

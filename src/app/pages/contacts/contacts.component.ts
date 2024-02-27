@@ -5,7 +5,8 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpService} from "../../services/http.service";
 import {OrderModel} from "../../models/order.model";
 import {StateService} from "../../services/state.service";
-import {UserAgentService} from "../../services/user-agent.service";
+import {MatDialog, MatDialogClose} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
 
 @Component({
   selector: 'app-contacts',
@@ -26,10 +27,10 @@ export class ContactsComponent implements OnInit {
     "date": this.dateControl
   });
 
-  constructor(private readonly telegramService: TelegramService,
+  constructor(public readonly telegramService: TelegramService,
               private readonly stateService: StateService,
               private readonly httpService: HttpService,
-              public readonly userAgentService: UserAgentService,
+              private readonly matDialog: MatDialog,
               private readonly router: Router) {
   }
 
@@ -65,7 +66,24 @@ export class ContactsComponent implements OnInit {
 
   readonly onclick = (): void => {
     this.httpService.createOrder(this.getData()).subscribe(() => {
-        this.router.navigate(['']);
+        this.matDialog.open(SuccessDialog).afterClosed().subscribe(() => {
+          this.router.navigate(['']);
+        })
       });
   }
+}
+
+@Component({
+  selector: 'success-dialog',
+  template: '<div><p>Ваша заявка принята!</p><button mat-button mat-dialog-close>Понятно</button></div>',
+  styles: 'div {width: 300px; display: flex;\n' +
+    '    text-align: center;\n' +
+    '    height: 150px;\n' +
+    '    flex-direction: column;\n' +
+    '    /* align-content: center; */\n' +
+    '    justify-content: center;} p {margin-bottom: 30px}',
+  standalone: true,
+  imports: [MatDialogClose, MatButtonModule]
+})
+export class SuccessDialog {
 }
