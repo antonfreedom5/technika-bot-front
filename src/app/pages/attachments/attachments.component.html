@@ -4,7 +4,7 @@
 <div class="carousel">
   <label *ngFor="let attachment of attachments" (click)="choose(attachment)">
     <input type="radio" name="attachment" [value]="attachment">
-    <img [src]="attachment.imgUrl" [alt]="attachment.name" (load)="showImages(attachments.length)">
+    <img [src]="attachment.imgUrl" [alt]="attachment.name">
     <span>{{attachment.name}}</span>
   </label>
 </div>

@@ -7,6 +7,7 @@ export class StateService {
   private attachments = new BehaviorSubject<MachineModel[]>(null);
 
   public currentMachine = new BehaviorSubject<MachineModel>(null);
+  public currentCategory = new BehaviorSubject<MachineModel>(null);
   public currentAttachment = new BehaviorSubject<MachineModel>(null);
 
   get machines$(): Observable<MachineModel[]> {
@@ -27,6 +28,10 @@ export class StateService {
 
   get currentAttachment$(): Observable<MachineModel> {
     return this.currentAttachment.asObservable();
+  }
+
+  setCurrentCategory = (category: MachineModel): void => {
+    this.currentCategory.next(category);
   }
 
   setCurrentAttachment = (attachment: MachineModel): void => {

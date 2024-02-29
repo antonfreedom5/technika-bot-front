@@ -11,8 +11,6 @@ import {TelegramService} from "../../services/telegram.service";
   styleUrl: './attachments.component.scss'
 })
 export class AttachmentsComponent implements OnInit {
-  isAttachmentsLoaded = false;
-  attachmentCounter = 1;
 
   currentMachine = this.stateService.currentMachine.value.name;
   attachments = this.stateService.currentMachine.value.attachments;
@@ -24,16 +22,13 @@ export class AttachmentsComponent implements OnInit {
   ngOnInit(): void {
     this.telegramService.mainButton.hide();
     this.telegramService.backButton.show();
-    this.telegramService.backButton.onClick(() => this.router.navigate(['']));
+    const commands = this.stateService.currentCategory.value ? ['categories'] : ['']
+    this.telegramService.backButton.onClick(() => this.router.navigate(commands));
   }
 
   readonly choose = (attachment: MachineModel): void => {
     this.stateService.setCurrentAttachment(attachment);
     this.router.navigate(['contacts']);
-  }
-
-  readonly showImages = (length: number): void => {
-    this.attachmentCounter === length ? this.isAttachmentsLoaded = true : this.attachmentCounter++;
   }
 
   readonly back = (): void => {

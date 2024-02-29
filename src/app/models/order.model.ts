@@ -7,5 +7,6 @@ export interface OrderModel {
   date: Date,
   machine: MachineModel,
   attachment: MachineModel,
+  category: MachineModel,
   user: UserModel
 }

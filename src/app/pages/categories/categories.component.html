@@ -1,0 +1,13 @@
+<div class="target-machine">{{currentMachine}}</div>
+
+<p>Выберите категорию</p>
+<div class="carousel">
+  <label *ngFor="let category of categories" (click)="choose(category)">
+    <input type="radio" name="attachment" [value]="category">
+    <img [src]="category.imgUrl" [alt]="category.name">
+    <span>{{category.name}}</span>
+  </label>
+</div>
+
+<!--<label (click)="back()">Назад</label>-->
+

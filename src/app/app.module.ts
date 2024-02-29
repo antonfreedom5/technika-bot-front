@@ -1,25 +1,27 @@
-import {AppComponent} from "./app.component";
-import {HttpClientModule} from "@angular/common/http";
-import {HttpService} from "./services/http.service";
-import {NgModule} from "@angular/core";
-import {TelegramService} from "./services/telegram.service";
-import {BrowserModule} from "@angular/platform-browser";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {CommonModule} from "@angular/common";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {AttachmentsComponent} from "./pages/attachments/attachments.component";
-import {ContactsComponent} from "./pages/contacts/contacts.component";
-import {AppRoutingModule} from "./app-routing.module";
-import {StateService} from "./services/state.service";
-import {MachinesComponent} from "./pages/machines/machines.component";
-import {IMaskModule} from "angular-imask";
-import {UserAgentService} from "./services/user-agent.service";
+import { AppComponent } from "./app.component";
+import { HttpClientModule } from "@angular/common/http";
+import { HttpService } from "./services/http.service";
+import { NgModule } from "@angular/core";
+import { TelegramService } from "./services/telegram.service";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { CommonModule } from "@angular/common";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AttachmentsComponent } from "./pages/attachments/attachments.component";
+import { ContactsComponent } from "./pages/contacts/contacts.component";
+import { AppRoutingModule } from "./app-routing.module";
+import { StateService } from "./services/state.service";
+import { MachinesComponent } from "./pages/machines/machines.component";
+import { IMaskModule } from "angular-imask";
+import { UserAgentService } from "./services/user-agent.service";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import {MatDialogModule} from "@angular/material/dialog";
-import {MatButtonModule} from "@angular/material/button";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatButtonModule } from "@angular/material/button";
+import { SuccessDialogComponent } from "./shared/success-dialog/success-dialog.component";
+import { CategoriesComponent } from "./pages/categories/categories.component";
 
 @NgModule({
-  declarations: [AppComponent, MachinesComponent, AttachmentsComponent, ContactsComponent],
+  declarations: [ AppComponent, MachinesComponent, AttachmentsComponent, ContactsComponent, SuccessDialogComponent, CategoriesComponent ],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -32,8 +34,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatDialogModule,
     MatButtonModule
   ],
-  providers: [HttpService, TelegramService, StateService, UserAgentService, provideAnimationsAsync()],
-  bootstrap: [AppComponent]
+  providers: [ HttpService, TelegramService, StateService, UserAgentService, provideAnimationsAsync() ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

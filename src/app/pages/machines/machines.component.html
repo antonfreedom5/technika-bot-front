@@ -2,7 +2,7 @@
 <div class="carousel">
   <label *ngFor="let machine of machines$ | async as machines" (click)="choose(machine)">
     <input type="radio" name="machine" [value]="machine">
-    <img [src]="machine.imgUrl" [alt]="machine.name" (load)="showImages(machines.length)">
+    <img [src]="machine.imgUrl" [alt]="machine.name">
     <span>{{machine.name}}</span>
   </label>
 </div>
