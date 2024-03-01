@@ -7,9 +7,10 @@
 
     p {
       margin: 0;
-      font-size: 17px;
+      font-size: 20px;
       padding-left: 5px;
       padding-bottom: 5px;
+      font-weight: 600;
     }
 
     .machines {
@@ -75,8 +76,8 @@
 label{
   display: block;
   padding-top: 25px;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
   color: black;
 
   &:first-child {
@@ -98,7 +99,7 @@ input, select {
   background-color: rgba(255,255,255,0.07);
   border-radius: 10px;
   margin-top: 10px;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 300;
   color: black;
   padding-left: 8px;
@@ -114,5 +115,5 @@ option {
 }
 ::placeholder{
   color: black;
-  font-size: 17px;
+  font-size: 20px;
 }
