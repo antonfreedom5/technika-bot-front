@@ -13,7 +13,7 @@ import {TelegramService} from "../../services/telegram.service";
 export class AttachmentsComponent implements OnInit {
 
   currentMachine = this.stateService.currentMachine.value.name;
-  attachments = this.stateService.currentMachine.value.attachments;
+  attachments = this.stateService.currentMachine.value.attachments.sort((a, b) => a.id - b.id);
 
   constructor(private readonly stateService: StateService,
               private readonly router: Router,

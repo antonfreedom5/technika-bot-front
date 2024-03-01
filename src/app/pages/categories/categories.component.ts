@@ -11,7 +11,7 @@ import { MachineModel } from "../../models/machine.model";
 })
 export class CategoriesComponent implements OnInit {
   currentMachine = this.stateService.currentMachine.value.name;
-  categories = this.stateService.currentMachine.value.categories;
+  categories = this.stateService.currentMachine.value.categories.sort((a, b) => a.id - b.id);
 
   constructor(private readonly stateService: StateService,
               private readonly router: Router,
