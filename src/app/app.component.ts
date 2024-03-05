@@ -19,6 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.telegramService.ready();
     this.telegramService.tg.expand();
-    this.httpService.getAllMachines().subscribe(this.stateService.setMachines);
+    this.httpService.getAllMachines(this.telegramService.tg.initDataUnsafe.user?.id).subscribe(this.stateService.setMachines);
   }
 }
