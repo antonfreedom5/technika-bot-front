@@ -5,7 +5,8 @@
       <img [src]="currentCategory ? currentCategory.imgUrl : currentMachine.imgUrl" [alt]="currentMachine.name">
       <span>{{currentCategory ? currentMachine.name + ', ' + currentCategory.name : currentMachine.name}}</span>
     </div>
-    <div class="machine" *ngIf="currentAttachment">
+
+        <div class="machine" *ngIf="currentAttachment">
       <img [src]="currentAttachment.imgUrl" [alt]="currentAttachment.name">
       <span>{{currentAttachment.name}}</span>
     </div>

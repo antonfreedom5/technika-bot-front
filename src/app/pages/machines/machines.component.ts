@@ -3,6 +3,7 @@ import { StateService } from "../../services/state.service";
 import { Router } from "@angular/router";
 import { MachineModel } from "../../models/machine.model";
 import { TelegramService } from "../../services/telegram.service";
+import { map } from "rxjs";
 
 @Component({
   selector: 'app-machines',
@@ -11,7 +12,7 @@ import { TelegramService } from "../../services/telegram.service";
 })
 export class MachinesComponent implements OnInit {
 
-  machines$ = this.stateService.machines$;
+  machines$ = this.stateService.machines$.pipe(map(machines => machines?.sort((a, b) => a.id - b.id)));
 
   constructor(private readonly stateService: StateService,
               private readonly telegramService: TelegramService,

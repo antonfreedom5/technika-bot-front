@@ -1,7 +1,7 @@
 :host {
   .target-choose {
     background-color: white;
-    margin: 15px;
+    margin: 10px;
     border-radius: 10px;
     padding: 10px;
 
@@ -10,30 +10,26 @@
       font-size: 20px;
       padding-left: 5px;
       padding-bottom: 5px;
-      font-weight: 600;
+      font-weight: 500;
     }
 
     .machines {
-      width: 100%;
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 49% 49%;
+      gap: 10px;
 
       .machine {
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        margin: 5px;
         border: 1px solid #e5e5e5;
         border-radius: 10px;
         padding: 10px;
 
-        img {
-          width: 100%;
-        }
-
         span {
           font-size: 15px;
+          font-weight: 500;
         }
       }
     }
@@ -41,7 +37,7 @@
   }
 
   form {
-    margin: 15px;
+    margin: 10px;
     background-color: white;
     border-radius: 10px;
     padding: 15px;
@@ -49,12 +45,12 @@
     button {
       margin-top: 20px;
       width: 97%;
-      height: 35px;
+      height: 40px;
       border-radius: 10px;
       border: 1px solid #e5e5e5;
       background: #f3da22;
       color: #000000;
-      font-family: "Jura", sans-serif;
+      font-size: 17px;
 
       &:disabled {
         filter: grayscale(.75);
@@ -73,11 +69,11 @@
   }
 }
 
-label{
+label {
   display: block;
   padding-top: 25px;
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
   color: black;
 
   &:first-child {
@@ -90,30 +86,20 @@ label{
   }
 }
 
-input, select {
+input {
   border: 1px solid #e5e5e5;
-  font-family: "Jura", sans-serif;
-  display: block;
   height: 40px;
   width: 95%;
-  background-color: rgba(255,255,255,0.07);
   border-radius: 10px;
   margin-top: 10px;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   color: black;
   padding-left: 8px;
-}
 
-select {
-  width: 100%;
-}
-
-option {
-  background-color: rgba(255,255,255,0.07);
-  color: black;
-}
-::placeholder{
-  color: black;
-  font-size: 20px;
+  &::placeholder {
+    color: black;
+    font-size: 19px;
+    font-weight: 400;
+  }
 }

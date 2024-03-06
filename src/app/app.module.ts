@@ -19,9 +19,10 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { MatButtonModule } from "@angular/material/button";
 import { SuccessDialogComponent } from "./shared/success-dialog/success-dialog.component";
 import { CategoriesComponent } from "./pages/categories/categories.component";
+import { CardComponent } from "./components/card/card.component";
 
 @NgModule({
-  declarations: [ AppComponent, MachinesComponent, AttachmentsComponent, ContactsComponent, SuccessDialogComponent, CategoriesComponent ],
+  declarations: [ AppComponent, MachinesComponent, AttachmentsComponent, ContactsComponent, SuccessDialogComponent, CategoriesComponent, CardComponent ],
   imports: [
     AppRoutingModule,
     BrowserModule,

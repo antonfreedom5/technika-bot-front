@@ -1,13 +1,10 @@
 <div class="target-machine">{{currentMachine}}</div>
 
 <p>Выберите оборудование</p>
+
 <div class="carousel">
-  <label *ngFor="let attachment of attachments" (click)="choose(attachment)">
-    <input type="radio" name="attachment" [value]="attachment">
-    <img [src]="attachment.imgUrl" [alt]="attachment.name">
-    <span>{{attachment.name}}</span>
-  </label>
+  <app-card *ngFor="let attachment of attachments"
+            [item]="attachment"
+            (onClick)="choose($event)"
+  ></app-card>
 </div>
-
-<!--<label (click)="back()">Назад</label>-->
-
