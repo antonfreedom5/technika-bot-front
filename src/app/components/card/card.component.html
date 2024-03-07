@@ -2,5 +2,5 @@
   <img [src]="item.imgUrl" [alt]="item.name">
   <span class="name">{{item.name}}</span>
   <span class="price" *ngIf="includePrice && item.price">от {{item.price}} руб/час</span>
-  <span class="price" *ngIf="includePrice && !item.price">Цена по согласованию</span>
+  <span class="price" *ngIf="includePrice && !item.price">Цена по запросу</span>
 </div>
