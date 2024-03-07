@@ -3,21 +3,23 @@
     font-size: 15px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
     background: white;
     border: 1px solid #e5e5e5;
     border-radius: 10px;
-    padding: 15px;
 
     img {
-      padding: 5px;
+      margin: 10px;
     }
 
     .name {
+      margin: 0 15px;
       font-weight: 500;
     }
 
     .price {
-      margin-top: 10px;
+      margin: 15px;
     }
   }
 }
