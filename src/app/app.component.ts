@@ -14,11 +14,15 @@ export class AppComponent implements OnInit {
   constructor(private readonly httpService: HttpService,
               private readonly stateService: StateService,
               public readonly userAgentService: UserAgentService,
-              private readonly telegramService : TelegramService) {}
+              public readonly telegramService : TelegramService) {}
 
   ngOnInit(): void {
     this.telegramService.ready();
     this.telegramService.tg.expand();
     this.httpService.getAllMachines(this.telegramService.tg.initDataUnsafe.user?.id).subscribe(this.stateService.setMachines);
+  }
+
+  openTelegramLink = ():void => {
+    window.open("https://t.me/spec_technika_bot");
   }
 }

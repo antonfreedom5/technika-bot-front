@@ -2,3 +2,27 @@
   display: flex;
   justify-content: center;
 }
+
+.telegram-link {
+  height: 50px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  border-bottom: 1px solid #e5e5e5;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #e5e5e5;
+  }
+
+  span {
+    margin-right: 10px;
+  }
+
+  img {
+    height: 100%;
+  }
+}
