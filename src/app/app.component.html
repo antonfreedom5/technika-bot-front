@@ -1,6 +1,18 @@
-<div *ngIf="!telegramService.tg.initDataUnsafe.user" (click)="openTelegramLink()" class="telegram-link">
-  <span>Открыть в Telegram</span>
-  <img src="assets/telegram.png">
+<div class="about" *ngIf="!telegramService.tg.initDataUnsafe.user">
+  <div class="logo" *ngIf="userAgentService.isDesktop">
+    <img src="assets/img/logo.jpg" alt="logo">
+    <span class="description">
+      Аренда спецтехники и навесного оборудования <br />
+      Работаем по всей стране 24/7
+    </span>
+  </div>
+  <span class="phone">
+      +375 (29) 677-26-55
+  </span>
+  <div (click)="openTelegramLink()" class="telegram-link">
+    <span>Сделать заказ <br />в Telegram</span>
+    <img src="assets/telegram.png">
+  </div>
 </div>
 <div [class.desktop]="userAgentService.isDesktop">
   <router-outlet></router-outlet>
