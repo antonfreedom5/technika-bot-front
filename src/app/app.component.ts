@@ -3,6 +3,7 @@ import {HttpService} from "./services/http.service";
 import {StateService} from "./services/state.service";
 import {TelegramService} from "./services/telegram.service";
 import {UserAgentService} from "./services/user-agent.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent implements OnInit {
   constructor(private readonly httpService: HttpService,
               private readonly stateService: StateService,
               public readonly userAgentService: UserAgentService,
-              public readonly telegramService : TelegramService) {}
+              public readonly telegramService : TelegramService,
+              private readonly router: Router) {}
 
   ngOnInit(): void {
     this.telegramService.ready();
@@ -24,5 +26,9 @@ export class AppComponent implements OnInit {
 
   openTelegramLink = ():void => {
     window.open("https://t.me/spec_technika_bot");
+  }
+
+  goHome = (): void => {
+    this.router.navigate(["/"]).finally();
   }
 }

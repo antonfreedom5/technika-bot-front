@@ -1,6 +1,6 @@
 <div class="about" *ngIf="!telegramService.tg.initDataUnsafe.user">
   <div class="logo" *ngIf="userAgentService.isDesktop">
-    <img src="assets/img/logo.jpg" alt="logo">
+    <img src="assets/img/logo.jpg" alt="logo" (click)="goHome()">
     <span class="description">
       Аренда спецтехники и навесного оборудования <br />
       Работаем по всей стране 24/7

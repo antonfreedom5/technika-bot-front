@@ -18,7 +18,10 @@
 
 <form [formGroup]="myForm">
   <label for="place">Место</label>
-  <input formControlName="place" type="text" placeholder="Где будем работать?" id="place">
+  <input formControlName="place" type="text" placeholder="Где будем работать?" id="place" list="citiesList">
+  <datalist id="citiesList">
+    <option *ngFor="let city of citySuggestions" [value]="city"></option>
+  </datalist>
 
   <label for="date">Дата</label>
   <input formControlName="date" type="date" id="date" placeholder="Когда нужна техника?">

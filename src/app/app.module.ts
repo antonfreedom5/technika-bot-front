@@ -1,7 +1,7 @@
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
 import { HttpService } from "./services/http.service";
-import { NgModule } from "@angular/core";
+import {APP_INITIALIZER, NgModule} from "@angular/core";
 import { TelegramService } from "./services/telegram.service";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -20,9 +20,26 @@ import { MatButtonModule } from "@angular/material/button";
 import { SuccessDialogComponent } from "./shared/success-dialog/success-dialog.component";
 import { CategoriesComponent } from "./pages/categories/categories.component";
 import { CardComponent } from "./components/card/card.component";
+import { YandexApiService } from "./services/yandex-api.service";
+import { AppConfigService } from "./services/app-config.service";
+
+// eslint-disable-next-line @typescript-eslint/typedef
+const appInitializerFn = (appConfig: AppConfigService) => {
+  return async(): Promise<void>  => {
+    return appConfig.loadAppConfig();
+  };
+};
 
 @NgModule({
-  declarations: [ AppComponent, MachinesComponent, AttachmentsComponent, ContactsComponent, SuccessDialogComponent, CategoriesComponent, CardComponent ],
+  declarations: [
+    AppComponent,
+    MachinesComponent,
+    AttachmentsComponent,
+    ContactsComponent,
+    SuccessDialogComponent,
+    CategoriesComponent,
+    CardComponent
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -35,7 +52,21 @@ import { CardComponent } from "./components/card/card.component";
     MatDialogModule,
     MatButtonModule
   ],
-  providers: [ HttpService, TelegramService, StateService, UserAgentService, provideAnimationsAsync() ],
+  providers: [
+    HttpService,
+    TelegramService,
+    StateService,
+    UserAgentService,
+    provideAnimationsAsync(),
+    YandexApiService,
+    AppConfigService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFn,
+      multi: true,
+      deps: [AppConfigService],
+    },
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
