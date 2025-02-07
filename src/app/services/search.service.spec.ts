@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { YandexApiService } from './yandex-api.service';
+import { SearchService } from './search.service';
 
-describe('YandexApiService', () => {
-  let service: YandexApiService;
+describe('SearchService', () => {
+  let service: SearchService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(YandexApiService);
+    service = TestBed.inject(SearchService);
   });
 
   it('should be created', () => {

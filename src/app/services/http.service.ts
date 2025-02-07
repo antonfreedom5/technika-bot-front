@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 
 import { MachineModel } from "../models/machine.model";
 import { OrderModel } from "../models/order.model";
+import { SuggestResponseModel } from "../models/suggest-response.model";
 
 @Injectable()
 export class HttpService {
@@ -18,4 +19,7 @@ export class HttpService {
   readonly createOrder = (order: OrderModel): Observable<void> => {
     return this.httpClient.post<void>(this.BASE_URL + "orders/save", order);
   }
+
+  readonly search = (query: string): Observable<SuggestResponseModel> =>
+    this.httpClient.get<SuggestResponseModel>(this.BASE_URL + "search/city?query=" + query);
 }

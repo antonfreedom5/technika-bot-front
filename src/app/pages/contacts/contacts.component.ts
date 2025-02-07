@@ -7,7 +7,7 @@ import {OrderModel} from "../../models/order.model";
 import {StateService} from "../../services/state.service";
 import {MatDialog} from "@angular/material/dialog";
 import {SuccessDialogComponent} from "../../shared/success-dialog/success-dialog.component";
-import {YandexApiService} from "../../services/yandex-api.service";
+import {SearchService} from "../../services/search.service";
 import {debounceTime, switchMap} from "rxjs";
 
 @Component({
@@ -32,7 +32,7 @@ export class ContactsComponent implements OnInit {
   });
 
   constructor(public readonly telegramService: TelegramService,
-              private readonly yandexApiService: YandexApiService,
+              private readonly searchService: SearchService,
               private readonly stateService: StateService,
               private readonly httpService: HttpService,
               private readonly matDialog: MatDialog,
@@ -45,7 +45,7 @@ export class ContactsComponent implements OnInit {
 
     this.placeControl.valueChanges.pipe(
       debounceTime(300),
-      switchMap(query => this.yandexApiService.getCitySuggestions(query))
+      switchMap(query => this.searchService.search(query))
     ).subscribe(cities => this.citySuggestions = cities);
   }
 

@@ -20,7 +20,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { SuccessDialogComponent } from "./shared/success-dialog/success-dialog.component";
 import { CategoriesComponent } from "./pages/categories/categories.component";
 import { CardComponent } from "./components/card/card.component";
-import { YandexApiService } from "./services/yandex-api.service";
+import { SearchService } from "./services/search.service";
 import { AppConfigService } from "./services/app-config.service";
 
 // eslint-disable-next-line @typescript-eslint/typedef
@@ -58,7 +58,7 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     StateService,
     UserAgentService,
     provideAnimationsAsync(),
-    YandexApiService,
+    SearchService,
     AppConfigService,
     {
       provide: APP_INITIALIZER,
